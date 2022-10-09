@@ -18,49 +18,91 @@
     <div class="row">
       <div class="col-3 justify-content-start">
 
-        <h2 class="text-black">Search for a City:</h2>
-        <div id="search-form" class="form w-100">
-          <input id="search-input" class="form-input w-100" type="text" placeholder="Search!">
-          </input>
-          <button class="btn btn-primary btn-block">Search</button>
+          <div class="card">
+            <h3 class="card-header">Search for a City:</h3>
+            <form id="user-form" class="card-body">
+              <input name="city" id="city" type="text" autofocus="true" class="form-input" />
+              <button type="submit" class="btn btn-primary btn-block">Search</button>
+            </form>
+          </div>
+
           <button class="btn btn-secondary btn-block">previousSearch</button>
         </div>
       </div>
-      </div>
-
-      <div class="row">
-        <div class="col-9">
-          <h2 class="text-black">City Name</h2>  
-          <icon></icon>
-<div class=currentTemp></div>
-<div class=currentWind></div>
-<div class=currentHumidity></div>
-      
-          <span class="border border-dark"></span>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-9 justify-content-end">
-          <h3 class="text-black">5-Day Forecast:</h3>
-          <!-- copy current day  -->
-            <!-- <div>box:tomorrow
-              icon
-              Temp:
-              Wind:
-              Humidity: -->
-            </div>
-            <div>box:day after</div>
-            <div>box:datediv>
-            <div>box:date </div>
-            <div>box:day 5 (date)/div>
-      
-         
-        </div>
-
-      </div>
-
     </div>
+
+    <div class="col-12 col-md-8">
+      <h2 class="subtitle"><span id="searchCity"></span></h2>
+      <div id="currentTemp" ></div>
+    </div>
+
+    <!-- <div class="row d-flex">
+      <div class="col-9">
+        <div class="card" style="width: 60rem;">
+          <div class="card-body">
+            <h5 class="card-title">Search City (Date)</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+            <p class="card-text">Temp:Wind:Humidity</p>
+          </div>
+        <span class="border border-dark"></span>
+      </div>
+    </div> -->
+
+   <div class="row d-flex">
+      <div class="col-9 justify-content-start">
+        <h3 class="text-black">5-Day Forecast:</h3>
+      </div>
+    </div>
+
+    <div class="row d-flex">
+      <div class="col-1 justify-content-start">
+    
+        <div class="card" style="width: 10rem;">
+          <div class="card-body">
+            <h5 class="card-title">Date</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+            <p class="card-text">Temp:Wind:Humidity</p>
+          </div>
+
+          <div class="card" style="width: 10rem;">
+            <div class="card-body">
+              <h5 class="card-title">Date</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+              <p class="card-text">Temp:Wind:Humidity</p>
+            </div>
+
+            <div class="card" style="width: 10rem;">
+              <div class="card-body">
+                <h5 class="card-title">Date</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+                <p class="card-text">Temp:Wind:Humidity</p>
+              </div>
+
+              <div class="card" style="width: 10rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Date</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+                  <p class="card-text">Temp:Wind:Humidity</p>
+                </div>
+
+                <div class="card" style="width: 10rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">Date</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+                    <p class="card-text">Temp:Wind:Humidity</p>
+                  </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  </div>
+
+  </div>
 
   </div>
 

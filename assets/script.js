@@ -1,9 +1,32 @@
 var ApiKey = "c7eeeb41361234b4d229a78f7b609b2d";
+var userForm = document.querySelector('#user-form');
+var btnPrimary = document.querySelector(".btn-primary");
+var cityInput = document.querySelector('#city');
+var currentTemp = document.querySelector('#currentTemp');
+var searchCity = document.querySelector('#searchCity');
+
+
+
+    var formSubmitHandler = function (event) {
+        event.preventDefault();
+      
+    var city = cityInput.value.trim();
+
+    if (city) {
+        getcityForecast(city);
+    
+       currentTemp.textContent = '';
+        cityInput.value = '';
+
+      } else {
+        alert('Please enter a city name');
+      };
+    }
 
 function searchApi() {
     var locQueryUrl =
         "https://api.openweathermap.org/data/2.5/forecast?q=minneapolis&appid=" +
-        ApiKey;
+        ApiKey + "&units=imperial";
     fetch(locQueryUrl)
         .then((res) => res.json())
         .then((res) => {
@@ -12,41 +35,27 @@ function searchApi() {
             let lat = res.city.coord.lat;
             let cityID = res.city.id;
             console.log("lat: " + lat, "Lon: " + lon);
-            function uvApi() {
-                var uvUrl =
-                    "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" +
-                    lat +
-                    "&lon=" +
-                    lon +
+
+            function forecast() {
+                var forecastUrl =
+                    "https://api.openweathermap.org/data/2.5/forecast?id=" +
+                    cityID +
                     "&appid=" +
-                    ApiKey +
-                    "&cnt=1";
-                fetch(uvUrl)
+                    ApiKey;
+                fetch(forecastUrl)
                     .then((res) => res.json())
                     .then((res) => {
-                        console.log(res);
-                        var uvIndex = res[0].value;
-                        console.log(uvIndex);
-                        function forecast() {
-                            var forecastUrl =
-                                "https://api.openweathermap.org/data/2.5/forecast?id=" +
-                                cityID +
-                                "&appid=" +
-                                ApiKey;
-                            fetch(forecastUrl)
-                                .then((res) => res.json())
-                                .then((res) => {
-                                    console.log(res.list.slice(0, 5));
-                                });
-                        }
-                        forecast();
+                        console.log(res.list.slice(0, 5));
                     });
             }
-            uvApi();
+            forecast();
         });
 }
 
+    
 searchApi();
+
+userForm.addEventListener('submit', formSubmitHandler);
 
 // https://github.com/jnordan132/City-Weather-Dashboard/blob/main/script.js
 
@@ -91,3 +100,24 @@ searchApi();
 
 // event delegation for dynamically created Event
 // write logic for that event.target get its text value plug into created function
+
+
+            // function uvApi() {
+            //     var uvUrl =
+            //         "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" +
+            //         lat +
+            //         "&lon=" +
+            //         lon +
+            //         "&appid=" +
+            //         ApiKey +
+            //         "&cnt=1";
+
+                // fetch(uvUrl)
+                //     .then((res) => res.json())
+                //     .then((res) => {
+                //         console.log(res);
+                //         var uvIndex = res[0].value;
+                //         console.log(uvIndex);
+
+
+        
