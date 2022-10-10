@@ -4,76 +4,81 @@ var btnPrimary = document.querySelector(".btn-primary");
 var cityInput = document.querySelector("#city");
 var currentTemp = document.querySelector("#currentTemp");
 var searchCity = document.querySelector("#searchCity");
+var previousSearch = document.querySelector(".previousSearch");
+var todaysForecast = document.querySelector(".todaysForecast");
+var currentTemp = document.querySelector("#temp");
+var wind = document.querySelector("#wind");
+var humidity = document.querySelector("#humidity");
 
 var formSubmitHandler = function (event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  var city = cityInput.value.trim();
+    var city = cityInput.value.trim();
 
-  if (city) {
-    getCityForecast(city);
+    if (city) {
+        getCityForecast(city);
 
-    currentTemp.textContent = "";
-    cityInput.value = "";
-  } else {
-    alert("Please enter a city name");
-  }
+        currentTemp.textContent = "";
+        cityInput.value = "";
+    } else {
+        alert("Please enter a city name");
+    }
 };
 
 var getCityForecast = function searchApi() {
-  var locQueryUrl =
-    "https://api.openweathermap.org/data/2.5/forecast?q=minneapolis&appid=" +
-    ApiKey +
-    "&units=imperial";
+    var locQueryUrl =
+        "https://api.openweathermap.org/data/2.5/forecast?q=minneapolis&appid=" +
+        ApiKey +
+        "&units=imperial";
 
-  // "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=" + ApiKey
+    // "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=" + ApiKey
 
-  fetch(locQueryUrl)
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res);
-      let lon = res.city.coord.lon;
-      let lat = res.city.coord.lat;
-      let cityID = res.city.id;
-      console.log("lat: " + lat, "Lon: " + lon);
-      // displayWeather(res, city);
+    fetch(locQueryUrl)
+        .then((res) => res.json())
+        .then((res) => {
+            console.log(res);
+            let lon = res.city.coord.lon;
+            let lat = res.city.coord.lat;
+            let cityID = res.city.id;
+            console.log("lat: " + lat, "Lon: " + lon);
+            // displayWeather(res, city);
 
-      // function forecast() {
-      //     var forecastUrl =
-      //         "https://api.openweathermap.org/data/2.5/forecast?id=" +
-      //         cityID +
-      //         "&appid=" +
-      //         ApiKey;
-      //     fetch(forecastUrl)
-      //         .then((res) => res.json())
-      //         .then((res) => {
-      //             console.log(res.list.slice(0, 5));
-      //         });
-      // }
+            // function forecast() {
+            //     var forecastUrl =
+            //         "https://api.openweathermap.org/data/2.5/forecast?id=" +
+            //         cityID +
+            //         "&appid=" +
+            //         ApiKey;
+            //     fetch(forecastUrl)
+            //         .then((res) => res.json())
+            //         .then((res) => {
+            //             console.log(res.list.slice(0, 5));
+            //         });
+            // }
 
-      function forecast(lat, lon) {
-        var forecastUrl =
-          "https://api.openweathermap.org/data/2.5/forecast?id=" +
-          cityID +
-          "&appid=" +
-          ApiKey +
-          "&units=imperial";
-        fetch(forecastUrl)
-          .then((res) => res.json())
-          .then((res) => {
-            var fiveDay = [];
-            fiveDay.push(
-              data.list[6],
-              data.list[14],
-              data.list[22],
-              data.list[30],
-              data.list[38]
-            );
-          });
-      }
+            function forecast(lat, lon) {
+                var forecastUrl =
+                    "https://api.openweathermap.org/data/2.5/forecast?id=" +
+                    cityID +
+                    "&appid=" +
+                    ApiKey +
+                    "&units=imperial";
+                fetch(forecastUrl)
+                    .then((res) => res.json())
+                    .then((res) => {
+                        var fiveDay = [];
+                        fiveDay.push(
+                            data.list[6],
+                            data.list[14],
+                            data.list[22],
+                            data.list[30],
+                            data.list[38]
+                        );
+                    });
+            }
 
-      forecast();
-    });
+            forecast();
+        });
 };
 
 // searchApi();

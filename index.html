@@ -18,37 +18,36 @@
     <div class="row">
       <div class="col-3 justify-content-start">
 
-          <div class="card">
-            <h3 class="card-header">Search for a City:</h3>
-            <form id="user-form" class="card-body">
-              <input name="city" id="city" type="text" autofocus="true" class="form-input" />
-              <button type="submit" class="btn btn-primary btn-block">Search</button>
-            </form>
-          </div>
-
-          <button class="btn btn-secondary btn-block">previousSearch</button>
+        <div class="card">
+          <h3 class="card-header">Search for a City:</h3>
+          <form id="user-form" class="card-body">
+            <input name="city" id="city" type="text" autofocus="true" class="form-input" />
+            <button type="submit" class="btn btn-primary btn-block">Search</button>
+          </form>
+        </div>
+        <div class="previousSearch">
+          <button class="btn btn-secondary btn-block">previous search cities</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="col-12 col-md-8">
-      <h2 class="subtitle"><span id="searchCity"></span></h2>
-      <div id="currentTemp" ></div>
-    </div>
-
-    <!-- <div class="row d-flex">
-      <div class="col-9">
-        <div class="card" style="width: 60rem;">
-          <div class="card-body">
-            <h5 class="card-title">Search City (Date)</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
-            <p class="card-text">Temp:Wind:Humidity</p>
-          </div>
+  <div class="row d-flex">
+    <div class="col-9">
+      <div class="card" style="width: 60rem;">
+        <div class="card-body">
+          <h2 class="subtitle"><span id="searchCity"></span></h2>
+          <h5 class="card-title">Search City (Date)</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+          <p class="card-text" id="temp">Temp:</p>
+          <p class="card-text" id="wind">Wind:</p>
+          <p class="card-text" id="humidity">Humidity:</p>
+        </div>
         <span class="border border-dark"></span>
       </div>
-    </div> -->
+    </div>
 
-   <div class="row d-flex">
+    <div class="row d-flex">
       <div class="col-9 justify-content-start">
         <h3 class="text-black">5-Day Forecast:</h3>
       </div>
@@ -56,7 +55,7 @@
 
     <div class="row d-flex">
       <div class="col-1 justify-content-start">
-    
+
         <div class="card" style="width: 10rem;">
           <div class="card-body">
             <h5 class="card-title">Date</h5>
@@ -92,25 +91,23 @@
                     <p class="card-text">Temp:Wind:Humidity</p>
                   </div>
 
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
+
       </div>
+
     </div>
 
 
-
-  </div>
-
-  </div>
-
-  </div>
-
-  </div>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <script src="assets/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 
 </html>
