@@ -10,22 +10,8 @@ const currentWindEl = document.getElementById("wind-speed");
 const historyEl = document.getElementById("history");
 let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
-var formSubmitHandler = function (event) {
-  event.preventDefault();
-
-  var city = inputEl.value.trim();
-
-  if (city) {
-    getCityForecast(city);
-
-    currentTemp.textContent = "";
-    cityInput.value = "";
-  } else {
-    alert("Please enter a city name");
-  }
-};
-
 //When I search for a city then I am presented with current and future conditions for that city.
+// I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the the wind speed
 
 function searchApi() {
   var locQueryUrl =
@@ -59,71 +45,65 @@ function searchApi() {
       nameEl.innerHTML = res.city.name;
       let lon = res.city.coord.lon;
       let lat = res.city.coord.lat;
-      
+
+      // WHEN I click on a city in the search history
+      // THEN I am again presented with current and future conditions for that city
+      // let storrageArray []
+      letlocationarray = JSON.parse(localstorage.getitem("searchApi"));
+      locationarray.push(searchHistory);
+      localstorage.setitem(searchHistory, JSON.stringify(locationarray));
+      historyEl.innerHTML = "";
+
+      //recentlist.empty():
+      // function (searchHistory){
+      //(var i=0; i<searchHistory.length; i++){
+      // };
+
+      // historyBtn =document.createElement.(button)
+      // historyBtn.textcontent=locationArray[i];
+      // searchbtn.setattribute(class, btn, btn-lg)
+      // recentList.append(searchbtn);
     });
 }
+
+searchEl.addEventListener("click", function () {
+  var city = inputEl.value.trim();
+  console.log(click);
+  if (city) {
+    searchApi(city);
+  } else {
+    alert("Please enter a city name");
+  }
+});
+
 searchApi();
 
-//     function forecast(lat, lon) {
-//         let forecastUrl =
-//             "https://api.openweathermap.org/data/2.5/forecast?lat=" +
-//             lat +
-//             "&lon=" +
-//             lon +
-//             "&appid=" +
-//             ApiKey;
-//         "&units=imperial";
-//         fetch(forecastUrl)
-//             .then((res) => res.json())
-//             .then((res) => {
-//                 var fiveDay = [];
-//                 fiveDay.push(
-//                     res.list[6],
-//                     res.list[14],
-//                     res.list[22],
-//                     res.list[30],
-//                     res.list[38]
-//                 );
-//             });
-//     };
+// WHEN I view future weather conditions for that city
+// THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
 
-//    forecast();
+    function forecast(lat, lon) {
+        let forecastUrl =
+            "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+            lat +
+            "&lon=" +
+            lon +
+            "&appid=" +
+            ApiKey;
+        "&units=imperial";
+        fetch(forecastUrl)
+            .then((res) => res.json())
+            .then((res) => {
+                var fiveDay = [];
+                fiveDay.push(
+                    res.list[6],
+                    res.list[14],
+                    res.list[22],
+                    res.list[30],
+                    res.list[38]
+                );
+            });
+    };
 
-//};
+   forecast();
 
-// let storrageArray []
 
-// function getApi happens each time. local storage happens once
-// add local storage to ApiKey
-
-// letlocationarray=json.parse(localstorage.getitem("search"))
-// locationarray.push(locationsearch)
-// console log
-// localstorage.set item (search-history", json.stringify(locationarray))
-
-// for loop inside it use java or jquesry
-// create elements and apend to URL
-// for loop itterate through
-// var i = 0, i<locationarray.lenght; i++0{
-
-// }
-// declare variaable
-// new search button =document.createElement.(button)
-// searchbutton.textcontent=locationArray[i];
-// append to parent element
-// SpeechRecognitionResultList.appendsearch button  = empty on load search history appear on search event.
-// set class attribute
-// searchbtn.setattribute(class, btn, btn-lg)
-// recentllist.append(searchbtn);
-
-// to appear on load: storage array duplicate logic to run on load or pull logic into a function and use it
-// copy the loop and drop it right after the local storage call
-
-// on submit event need to clear the element. before the for loop
-
-// recentlist.empty(): in front of for loop
-
-// this will need to be a function. pulling out fetch logic (fetch city)then do the fetch logic
-
-// event delegation for dynamically created Event
-// write logic for that event.target get its text value plug into created function

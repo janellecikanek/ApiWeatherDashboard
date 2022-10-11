@@ -1,5 +1,6 @@
 .navbar {
     background-image: linear-gradient(to right, blue, purple);
+    font: white
   }
 
 .navbar-brand {

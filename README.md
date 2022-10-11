@@ -11,12 +11,25 @@ This project has helped with my understanding of Java Script and APIs.
 This project uses HTML, CSS, Java Script, Bootstrap and the Open Weather API.
 
 ## Usage
+  
+  ![alt Weather Dashboard Screenshot]
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+(/Users/janellecikanek/Desktop/ApiWeatherDashboard/assets/Images/weatherDashboardScreenshot.png)
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+  (Users/janellecikanek/Desktop/ApiWeatherDashboard/assets/Images/weatherDashboardScreenshot.png)
+
+(.assets/Images/weatherDashboardScreenshot.png)
+
+assets/Images/weatherDashboardScreenshot.png
+(assets/Images/weatherDashboardScreenshot.png)
+(/Images/weatherDashboardScreenshot.png)
+(.Images/weatherDashboardScreenshot.png)
+(.assets/Images/weatherDashboardScreenshot.png)
+(Images/weatherDashboardScreenshot.png)
+(/assests/Images/weatherDashboardScreenshot.png)
+(/assets.Images/weatherDashboardScreenshot.png)
+(.Images/weatherDashboardScreenshot.png)
+(/.assets.Images/weatherDashboardScreenshot.png)
 
 ## Credits
 
