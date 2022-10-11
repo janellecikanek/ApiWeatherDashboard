@@ -15,25 +15,8 @@ This project uses HTML, CSS, Java Script, Bootstrap and the Open Weather API.
 (https://janellecikanek.github.io/ApiWeatherDashboard/)  
 
   ![alt Weather Dashboard Screenshot]
-
-(/Users/janellecikanek/Desktop/ApiWeatherDashboard/assets/Images/weatherDashboardScreenshot.png)
-
-  (Users/janellecikanek/Desktop/ApiWeatherDashboard/assets/Images/weatherDashboardScreenshot.png)
-
-(.assets/Images/weatherDashboardScreenshot.png)
-
-(https://github.com/janellecikanek/ApiWeatherDashboard/blob/main/assets/Images/weatherDashboardScreenshot.png?raw=true)
-
-assets/Images/weatherDashboardScreenshot.png
-(assets/Images/weatherDashboardScreenshot.png)
-(/Images/weatherDashboardScreenshot.png)
-(.Images/weatherDashboardScreenshot.png)
-(.assets/Images/weatherDashboardScreenshot.png)
-(Images/weatherDashboardScreenshot.png)
-(/assests/Images/weatherDashboardScreenshot.png)
-(/assets.Images/weatherDashboardScreenshot.png)
-(.Images/weatherDashboardScreenshot.png)
-(/.assets.Images/weatherDashboardScreenshot.png)
+  
+  (https://github.com/janellecikanek/ApiWeatherDashboard/blob/main/assets/Images/weatherDashboardScreenshot.png?raw=true)
 
 ## Credits
 
