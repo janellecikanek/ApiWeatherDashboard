@@ -10,51 +10,86 @@ const currentWindEl = document.getElementById("wind-speed");
 const historyEl = document.getElementById("history");
 let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
-// var formSubmitHandler = function (event) {
-//     event.preventDefault();
+var formSubmitHandler = function (event) {
+  event.preventDefault();
 
-//     var city = cityInput.value.trim();
+  var city = inputEl.value.trim();
 
-//     if (city) {
-//         getCityForecast(city);
+  if (city) {
+    getCityForecast(city);
 
-//         currentTemp.textContent = "";
-//         cityInput.value = "";
-//     } else {
-//         alert("Please enter a city name");
-//     }
-// };
-
- function searchApi() {
-    var locQueryUrl =
-        "https://api.openweathermap.org/data/2.5/forecast?q=" + "austin" + "&appid=" +
-        ApiKey + "&units=imperial";
-
-    fetch(locQueryUrl)
-        .then((res) => res.json())
-        .then((res) => {
-            console.log(res);
-            var cityID = res.city.id;
-            var currentDate = new Date()
-            console.log(currentDate)
-            var day = currentDate.getDate()
-            var month = currentDate.getMonth() + 1
-            var year = currentDate.getFullYear()
-            nameEl.innerHTML = "res.name" + " (" + month + "/" + day + "/" + year + ") ";
-           currentTempEl.innerHTML= "Temp: " + res.list[0].main.temp + " &#176F";
-           currentHumidityEl.innerHTML = "Humidity: " + res.list[0].main.humidity + "%";
-           currentWindEl.innerHTML = "Wind: " + res.list[0].wind.speed + "mph";
-           var weatherImage = res.list[0].weather[0].icon;
-           currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherImage + "@2x.png");
-           currentPicEl.setAttribute("alt", res.list[0].weather[0].description);
-        });
+    currentTemp.textContent = "";
+    cityInput.value = "";
+  } else {
+    alert("Please enter a city name");
+  }
 };
 
-searchApi()
+//When I search for a city then I am presented with current and future conditions for that city.
 
+function searchApi() {
+  var locQueryUrl =
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
+    "city" +
+    "&appid=" +
+    ApiKey +
+    "&units=imperial";
+  fetch(locQueryUrl)
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      var cityID = res.city.id;
+      var currentDate = new Date();
+      console.log(currentDate);
+      var day = currentDate.getDate();
+      var month = currentDate.getMonth() + 1;
+      var year = currentDate.getFullYear();
+      nameEl.innerHTML =
+        "res.name" + " (" + month + "/" + day + "/" + year + ") ";
+      currentTempEl.innerHTML = "Temp: " + res.list[0].main.temp + " &#176F";
+      currentHumidityEl.innerHTML =
+        "Humidity: " + res.list[0].main.humidity + "%";
+      currentWindEl.innerHTML = "Wind: " + res.list[0].wind.speed + "mph";
+      var weatherImage = res.list[0].weather[0].icon;
+      currentPicEl.setAttribute(
+        "src",
+        "https://openweathermap.org/img/wn/" + weatherImage + "@2x.png"
+      );
+      currentPicEl.setAttribute("alt", res.list[0].weather[0].description);
+      nameEl.innerHTML = res.city.name;
+      let lon = res.city.coord.lon;
+      let lat = res.city.coord.lat;
+      
+    });
+}
+searchApi();
 
+//     function forecast(lat, lon) {
+//         let forecastUrl =
+//             "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+//             lat +
+//             "&lon=" +
+//             lon +
+//             "&appid=" +
+//             ApiKey;
+//         "&units=imperial";
+//         fetch(forecastUrl)
+//             .then((res) => res.json())
+//             .then((res) => {
+//                 var fiveDay = [];
+//                 fiveDay.push(
+//                     res.list[6],
+//                     res.list[14],
+//                     res.list[22],
+//                     res.list[30],
+//                     res.list[38]
+//                 );
+//             });
+//     };
 
-// https://github.com/jnordan132/City-Weather-Dashboard/blob/main/script.js
+//    forecast();
+
+//};
 
 // let storrageArray []
 
@@ -92,55 +127,3 @@ searchApi()
 
 // event delegation for dynamically created Event
 // write logic for that event.target get its text value plug into created function
-
-// // 
-// function forecast(lat, lon) {
-//     var forecastUrl =
-//         "https://api.openweathermap.org/data/2.5/forecast?id=" +
-//         cityID +
-//         "&appid=" +
-//         ApiKey +
-//         "&units=imperial";
-//     fetch(forecastUrl)
-//         .then((res) => res.json())
-//         .then((res) => {
-//             var fiveDay = [];
-//             fiveDay.push(
-//                 data.list[6],
-//                 data.list[14],
-//                 data.list[22],
-//                 data.list[30],
-//                 data.list[38]
-//             );
-//         });
-// }
-
-// forecast();
-
-
-
-
-
-
-
-
-
-
-
-
-function uvApi() {
-//     var uvUrl =
-//         "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" +
-//         lat +
-//         "&lon=" +
-//         lon +
-//         "&appid=" +
-//         ApiKey +
-//         "&cnt=1";
-
-// fetch(uvUrl)
-//     .then((res) => res.json())
-//     .then((res) => {
-//         console.log(res);
-//         var uvIndex = res[0].value;
-//         console.log(uvIndex);
